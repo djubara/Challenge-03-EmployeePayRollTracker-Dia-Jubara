@@ -32,11 +32,17 @@ const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
   let salarySum = 0;
   let numEmployees = 0;
+  // Cycles through the employees arrays to add their salaries and determines the length of employees.
   for (let i = 0; i < employeesArray.length; i++)
     salarySum += employeesArray[i].salary
   numEmployees = employeesArray.length
   salaryAvg = salarySum / numEmployees
-  console.log(`There are ${employeesArray.length} employees with an average salary of ${salaryAvg} dollars.`)
+  if (numEmployees > 1) {
+    console.log(`There are ${employeesArray.length} employees with an average salary of ${salaryAvg} dollars.`)
+  }
+  else if (numEmployees == 1) {
+    console.log(`There is ${employeesArray.length} employee with a salary of ${salaryAvg} dollars.`)
+  }
   return employeesArray
 }
 
