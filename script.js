@@ -16,9 +16,9 @@ const collectEmployees = function () {
     console.log(firstName);
     console.log(lastName);
     console.log(salary);
-    let person = { "firstName": firstName, "lastName": lastName, "salary": salary };
-    console.log(person);
-    employeesArray.push(person)
+    let employee = { "firstName": firstName, "lastName": lastName, "salary": salary };
+    // console.log(person);
+    employeesArray.push(employee)
     console.log(employeesArray)
     addEmployee = confirm("Would you like to add another employee?")
   }
@@ -37,12 +37,16 @@ const displayAverageSalary = function (employeesArray) {
   numEmployees = employeesArray.length
   salaryAvg = salarySum / numEmployees
   console.log(`There are ${employeesArray.length} employees with an average salary of ${salaryAvg} dollars.`)
+  return employeesArray
 }
 
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
   // TODO: Select and display a random employee
+  let randomEmployee = employeesArray[Math.floor(Math.random() * employeesArray.length)];
+  console.log(employeesArray)
+  console.log(`Random employee: ${randomEmployee.firstName} ${randomEmployee.lastName}`)
 }
 
 /*
@@ -94,8 +98,8 @@ const trackEmployeeData = function () {
   displayAverageSalary(employees);
 
   console.log('==============================');
-
   getRandomEmployee(employees);
+
 
   employees.sort(function (a, b) {
     if (a.lastName < b.lastName) {
